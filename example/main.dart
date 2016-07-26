@@ -16,8 +16,8 @@ main() {
       position: new Point<int>(100, 100),
       speed: 0.5,
       angle: 1,
-      color: 'black',
-      radius: 4);
+      color: 'red',
+      radius: 40);
 
   engine.store.add(circle);
   engine.loop.start();

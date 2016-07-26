@@ -17,10 +17,10 @@ class Engine2d {
   Engine2d(EngineOptions options) {
     switch (options.drawerType) {
       case DrawerType.CANVAS:
-        _drawer = new SvgDrawer();
+        _drawer = new CanvasDrawer();
         break;
       case DrawerType.SVG:
-        _drawer = new CanvasDrawer();
+        _drawer = new SvgDrawer();
         break;
     }
 
@@ -28,7 +28,7 @@ class Engine2d {
 
     _store = new EntityStore();
     _physicEngine = new BallisticEngine(_store);
-    _renderer = new Renderer(_drawer);
+    _renderer = new Renderer(_drawer, _store);
     _gameLoop = new GameLoop(_renderer, _physicEngine);
   }
 

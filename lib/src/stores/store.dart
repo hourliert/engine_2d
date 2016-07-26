@@ -3,7 +3,7 @@ library engine_2d.src.stores.store;
 class Store<T> {
   List<T> _store;
 
-  EntityStore() {
+  Store() {
     _store = new List<T>();
   }
 

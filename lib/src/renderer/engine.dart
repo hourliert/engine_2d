@@ -8,7 +8,7 @@ class Renderer {
   Drawer _drawer;
   EntityStore _entityStore;
 
-  Renderer(this._drawer);
+  Renderer(this._drawer, this._entityStore);
 
   void render() {
     _drawer.clearStage();
