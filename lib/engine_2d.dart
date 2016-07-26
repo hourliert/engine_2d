@@ -1,11 +1,10 @@
 // Copyright (c) 2016, Thomas Hourlier. All rights reserved. Use of this source code
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
 library engine_2d;
 
-export 'src/engine_2d_base.dart';
-
-// TODO: Export any libraries intended for clients of this package.
+export 'package:engine_2d/core.dart';
+export 'package:engine_2d/game_objects.dart';
+export 'package:engine_2d/physic.dart';
+export 'package:engine_2d/drawers.dart';
+export 'package:engine_2d/stores.dart' show EntityStore;
