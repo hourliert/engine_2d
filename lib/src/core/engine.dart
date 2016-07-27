@@ -24,14 +24,17 @@ class Engine2d {
         break;
     }
 
-    _drawer.createDom(options.mountPoint);
-
     _store = new EntityStore();
     _physicEngine = new BallisticEngine(_store);
     _renderer = new Renderer(_drawer, _store);
     _gameLoop = new GameLoop(_renderer, _physicEngine);
+
+    _drawer.createDom(options.mountPoint);
+    _physicEngine.updateBoundaries(
+        options.mountPoint.client.width, options.mountPoint.client.height);
   }
 
   EntityStore get store => _store;
   GameLoop get loop => _gameLoop;
+  PhysicEngine get physic => _physicEngine;
 }

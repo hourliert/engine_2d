@@ -8,17 +8,31 @@ import 'package:engine_2d/engine_2d.dart';
 
 main() {
   DivElement mountPoint = querySelector('#mount');
+  SpanElement nbGo = querySelector('#nb_go');
+  Random rng = new Random(123456789);
 
   Engine2d engine = new Engine2d(
       new EngineOptions(drawerType: DrawerType.CANVAS, mountPoint: mountPoint));
 
-  Circle circle = new Circle(
-      position: new Point<int>(100, 100),
-      speed: 0.5,
-      angle: 1,
-      color: 'red',
-      radius: 40);
+  engine.physic.onEntityHitBorder.listen((Entity e) {
+    engine.store.remove(e);
+    nbGo.setInnerHtml('${engine.store.entities.length}');
+  });
 
-  engine.store.add(circle);
   engine.loop.start();
+
+  mountPoint.onClick.listen((MouseEvent e) {
+    for (int i = 0; i < 50; i++) {
+      Circle circle = new Circle(
+          position: new Point<int>(e.client.x, e.client.y),
+          speed: (rng.nextDouble() * 0.5) + 0.5,
+          angle: rng.nextDouble() * 2 * PI,
+          color: 'red',
+          radius: 10);
+
+      engine.store.add(circle);
+    }
+
+    nbGo.setInnerHtml('${engine.store.entities.length}');
+  });
 }
