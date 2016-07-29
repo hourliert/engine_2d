@@ -17,7 +17,7 @@ class Renderer {
 
   void _renderEntity(Entity entity) {
     switch (entity.type) {
-      case EntityType.CIRCLE:
+      case EntityType.circle:
         _drawer.drawCircle(entity);
         break;
     }

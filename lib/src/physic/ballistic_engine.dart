@@ -13,11 +13,10 @@ class BallisticEngine extends PhysicEngine {
   EntityStore _entityStore;
 
   /// Creates a physic engine
-  ///
-  /// A [BulletStore] and a [Scene] must be injected into it.
   BallisticEngine(this._entityStore);
 
   /// Computes the next bullet positions using a finit [timeBudget]
+  @override
   void nextPositions(Duration timeBudget) {
     _entityStore.entities.forEach((Entity b) {
       _nextBulletPosition(b, timeBudget);

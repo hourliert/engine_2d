@@ -12,11 +12,11 @@ abstract class Entity {
   String color;
 
   Entity(
-      {Point<num> this.position,
-      EntityType this.type,
-      num this.speed: 0.5,
-      num this.angle: 0,
-      String this.color: 'black'});
+      {this.position,
+      this.type,
+      this.speed: 0.5,
+      this.angle: 0,
+      this.color: 'black'});
 
   @override
   String toString() {

@@ -22,8 +22,6 @@ abstract class PhysicEngine implements Disposable {
   StreamController<Entity> onEntityHitBorderStreamController;
 
   /// Creates a physic engine
-  ///
-  /// A [BulletStore] and a [Scene] must be injected into it.
   PhysicEngine() {
     boundaries = new MutableRectangle<int>(0, 0, 0, 0);
 

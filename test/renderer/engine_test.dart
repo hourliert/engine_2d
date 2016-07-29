@@ -31,7 +31,7 @@ void main() {
           radius: 4,
           color: 'black');
 
-      when(store.entities).thenReturn([aloneCircle]);
+      when(store.entities).thenReturn(<Entity>[aloneCircle]);
     });
 
     test('.render() clears the stage and renders each entity', () {

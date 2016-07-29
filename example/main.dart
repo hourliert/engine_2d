@@ -7,13 +7,13 @@ import 'dart:async';
 
 import 'package:engine_2d/engine_2d.dart';
 
-main() {
+void main() {
   DivElement mountPoint = querySelector('#mount');
   SpanElement nbGo = querySelector('#nb_go');
   Random rng = new Random(123456789);
 
   Engine2d engine = new Engine2d(
-      new EngineOptions(drawerType: DrawerType.CANVAS, mountPoint: mountPoint));
+      new EngineOptions(drawerType: DrawerType.canvas, mountPoint: mountPoint));
 
   engine.physic.onEntityHitBorder.listen((Entity e) {
     engine.store.remove(e);
@@ -37,7 +37,7 @@ main() {
 
   engine.initialize();
 
-  new Future.delayed(const Duration(seconds: 10), () {
+  new Future<Null>.delayed(const Duration(seconds: 10), () {
     print('dispos');
     engine.dispose();
     engine = null;

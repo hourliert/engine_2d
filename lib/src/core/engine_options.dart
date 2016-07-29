@@ -8,6 +8,5 @@ class EngineOptions {
   DrawerType drawerType;
   Element mountPoint;
 
-  EngineOptions(
-      {Element this.mountPoint, DrawerType this.drawerType: DrawerType.CANVAS});
+  EngineOptions({this.mountPoint, this.drawerType: DrawerType.canvas});
 }

@@ -7,15 +7,10 @@ import 'package:engine_2d/game_objects.dart';
 class Circle extends Entity {
   num radius;
 
-  Circle(
-      {Point<num> position,
-      num speed,
-      num angle,
-      String color,
-      num this.radius})
+  Circle({Point<num> position, num speed, num angle, String color, this.radius})
       : super(
             position: position,
-            type: EntityType.CIRCLE,
+            type: EntityType.circle,
             speed: speed,
             angle: angle,
             color: color);

@@ -22,10 +22,10 @@ class Engine2d implements Initializable, Disposable {
 
   Engine2d(this._config) {
     switch (_config.drawerType) {
-      case DrawerType.CANVAS:
+      case DrawerType.canvas:
         _drawer = new CanvasDrawer();
         break;
-      case DrawerType.SVG:
+      case DrawerType.svg:
         _drawer = new SvgDrawer();
         break;
     }

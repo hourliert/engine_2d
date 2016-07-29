@@ -38,7 +38,7 @@ void main() {
     });
 
     test('.updateBoundaries() redefines the boundaries size and broadcast', () {
-      // ignore: STRONG_MODE_DOWN_CAST_COMPOSITE
+      // ignore: strong_mode_down_cast_composite
       engine.onResize.listen(expectAsync((Rectangle<int> boundaries) {
         expect(boundaries, equals(new Rectangle<int>(0, 0, 100, 100)));
       }, count: 1));
@@ -49,9 +49,9 @@ void main() {
     test('.dispose() cleans up everything', () {
       engine.dispose();
 
-      // ignore: INVALID_USE_OF_PROTECTED_MEMBER
+      // ignore: invalid_use_of_protected_member
       expect(engine.onResizeController.isClosed, isTrue);
-      // ignore: INVALID_USE_OF_PROTECTED_MEMBER
+      // ignore: invalid_use_of_protected_member
       expect(engine.onEntityHitBorderStreamController.isClosed, isTrue);
     });
   });

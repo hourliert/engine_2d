@@ -28,7 +28,7 @@ void main() {
           radius: 4,
           color: 'black');
 
-      when(store.entities).thenReturn([aloneCircle]);
+      when(store.entities).thenReturn(<Entity>[aloneCircle]);
     });
 
     test('.nextPositions() computes the next position of all entities', () {
@@ -43,7 +43,7 @@ void main() {
     test('.nextPositions() broadcasts when an entity hits a border', () {
       engine.updateBoundaries(120, 120);
 
-      // ignore: STRONG_MODE_DOWN_CAST_COMPOSITE
+      // ignore: strong_mode_down_cast_composite
       engine.onEntityHitBorder.listen(expectAsync((Entity e) {
         expect(e.position, equals(new Point<int>(150, 0)));
         expect(e.speed, inClosedOpenRange(0, 1));
