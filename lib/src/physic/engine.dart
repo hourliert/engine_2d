@@ -5,12 +5,13 @@ import 'dart:async' show Stream, StreamController;
 
 import 'package:meta/meta.dart' show protected;
 
+import 'package:engine_2d/common.dart';
 import 'package:engine_2d/game_objects.dart' show Entity;
 
 /// Manages the game physic
 ///
 /// It computes scene bullet position according to a pseudo ballistic trajectory
-abstract class PhysicEngine {
+abstract class PhysicEngine implements Disposable {
   @protected
   MutableRectangle<int> boundaries;
 
@@ -46,4 +47,10 @@ abstract class PhysicEngine {
   }
 
   void nextPositions(Duration timeBudget);
+
+  @override
+  void dispose() {
+    onResizeController.close();
+    onEntityHitBorderStreamController.close();
+  }
 }

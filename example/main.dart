@@ -3,6 +3,7 @@
 
 import 'dart:html';
 import 'dart:math';
+import 'dart:async';
 
 import 'package:engine_2d/engine_2d.dart';
 
@@ -19,9 +20,7 @@ main() {
     nbGo.setInnerHtml('${engine.store.entities.length}');
   });
 
-  engine.loop.start();
-
-  mountPoint.onClick.listen((MouseEvent e) {
+  engine.ui.onClick.listen((MouseEvent e) {
     for (int i = 0; i < 50; i++) {
       Circle circle = new Circle(
           position: new Point<int>(e.client.x, e.client.y),
@@ -34,5 +33,13 @@ main() {
     }
 
     nbGo.setInnerHtml('${engine.store.entities.length}');
+  });
+
+  engine.initialize();
+
+  new Future.delayed(const Duration(seconds: 10), () {
+    print('dispos');
+    engine.dispose();
+    engine = null;
   });
 }

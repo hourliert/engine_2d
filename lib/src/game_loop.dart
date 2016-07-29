@@ -5,8 +5,9 @@ import 'dart:async';
 
 import 'package:engine_2d/physic.dart';
 import 'package:engine_2d/renderer.dart';
+import 'package:engine_2d/common.dart';
 
-class GameLoop {
+class GameLoop implements Disposable {
   Renderer _renderer;
   PhysicEngine _physicEngine;
 
@@ -49,5 +50,10 @@ class GameLoop {
     while (true) {
       yield await window.animationFrame;
     }
+  }
+
+  @override
+  void dispose() {
+    stop();
   }
 }
