@@ -24,17 +24,17 @@ class BallisticEngine extends PhysicEngine {
     });
   }
 
-  void _nextBulletPosition(Entity b, Duration timeBudget) {
-    if (!boundaries.containsPoint(b.position)) {
-      onEntityHitBorderStreamController.add(b);
-    } else {
-      b.position += new Point<int>(
-          (b.speed * timeBudget.inMilliseconds * cos(b.angle)).toInt(),
-          (b.speed * timeBudget.inMilliseconds * sin(b.angle)).toInt());
-      // we slightly alter the bullet angle. we are using a gaussian function
-      b.angle += exp(-pow((3 * b.speed - 3.5), 2)) / 10;
-      // we slightly alter the bullet speed. we are using a linear function
-      b.speed -= (b.speed - 0.1) / 90;
+  void _nextBulletPosition(Entity e, Duration timeBudget) {
+    e.position += new Point<int>(
+        (e.speed * timeBudget.inMilliseconds * cos(e.angle)).toInt(),
+        (e.speed * timeBudget.inMilliseconds * sin(e.angle)).toInt());
+    // we slightly alter the bullet angle. we are using a gaussian function
+    e.angle += exp(-pow((3 * e.speed - 3.5), 2)) / 10;
+    // we slightly alter the bullet speed. we are using a linear function
+    e.speed -= (e.speed - 0.1) / 90;
+
+    if (!boundaries.containsPoint(e.position)) {
+      onEntityHitBorderStreamController.add(e);
     }
   }
 }

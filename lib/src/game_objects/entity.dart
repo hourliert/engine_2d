@@ -14,7 +14,18 @@ abstract class Entity {
   Entity(
       {Point<num> this.position,
       EntityType this.type,
-      num this.speed,
-      num this.angle,
-      String this.color});
+      num this.speed: 0.5,
+      num this.angle: 0,
+      String this.color: 'black'});
+
+  @override
+  String toString() {
+    return '''
+      Entity:
+      position: $position
+      speed: $speed
+      angle: $angle
+      color: $color
+    ''';
+  }
 }

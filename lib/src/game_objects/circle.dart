@@ -19,4 +19,16 @@ class Circle extends Entity {
             speed: speed,
             angle: angle,
             color: color);
+
+  @override
+  String toString() {
+    return '''
+      Circle:
+      position: $position
+      speed: $speed
+      angle: $angle
+      color: $color
+      radius: $radius
+    ''';
+  }
 }

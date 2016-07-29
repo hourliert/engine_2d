@@ -1,5 +1,6 @@
 library engine_2d.src.stores.store;
 
+
 class Store<T> {
   List<T> _store;
 
@@ -19,4 +20,6 @@ class Store<T> {
   void remove(T b) {
     _store.remove(b);
   }
+
+
 }

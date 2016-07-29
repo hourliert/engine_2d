@@ -1,6 +1,12 @@
 language: dart
+sudo: false
 dart:
   - stable
   - dev
+cache:
+  directories:
+    - $HOME/.pub-cache
+with_content_shell: true
 before_script:
   - dartanalyzer .
+script: ./tools/travis.sh
