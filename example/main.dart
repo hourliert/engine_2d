@@ -39,7 +39,6 @@ void main() {
   engine.initialize();
 
   new Future<Null>.delayed(const Duration(seconds: 10), () {
-    print('dispos');
     engine.dispose();
     engine = null;
   });

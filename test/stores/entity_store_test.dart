@@ -3,7 +3,7 @@
 // that can be found in the LICENSE file.
 
 @TestOn('vm || browser')
-library engine_2d.test.stores.store;
+library engine_2d.test.stores.entity_store;
 
 import 'dart:math' show Point, Rectangle;
 

@@ -23,12 +23,8 @@ void main() {
       engine = new BasicEngine();
     });
 
-    test('.width retrieves the right boundaries', () {
-      expect(engine.width, equals(0));
-    });
-
-    test('.height retrieves the right boundaries', () {
-      expect(engine.width, equals(0));
+    test('.boundaries retrieves the boundaries', () {
+      expect(engine.boundaries, new Rectangle<int>(0, 0, 0, 0));
     });
 
     test('.onResize retrieves the resize stream', () {

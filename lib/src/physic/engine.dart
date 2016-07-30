@@ -17,35 +17,33 @@ import 'package:engine_2d/game_objects.dart' show Entity;
 /// It computes scene bullet position according to a pseudo ballistic trajectory
 abstract class PhysicEngine implements Disposable {
   @protected
-  MutableRectangle<int> boundaries;
-
-  @protected
   StreamController<Rectangle<int>> onResizeController;
 
   @protected
   StreamController<Entity> onEntityHitBorderStreamController;
 
+  MutableRectangle<int> _boundaries;
+
   /// Creates a physic engine
   PhysicEngine() {
-    boundaries = new MutableRectangle<int>(0, 0, 0, 0);
+    _boundaries = new MutableRectangle<int>(0, 0, 0, 0);
 
     onResizeController = new StreamController<Rectangle<int>>.broadcast();
     onEntityHitBorderStreamController =
         new StreamController<Entity>.broadcast();
   }
 
-  int get width => boundaries.width;
-  int get height => boundaries.height;
+  Rectangle<int> get boundaries => _boundaries;
 
   Stream<Entity> get onEntityHitBorder =>
       onEntityHitBorderStreamController.stream;
   Stream<Rectangle<int>> get onResize => onResizeController.stream;
 
   void updateBoundaries(int width, int height) {
-    boundaries.width = width;
-    boundaries.height = height;
+    _boundaries.width = width;
+    _boundaries.height = height;
 
-    onResizeController.add(boundaries);
+    onResizeController.add(_boundaries);
   }
 
   void nextPositions(Duration timeBudget);

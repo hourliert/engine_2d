@@ -17,19 +17,23 @@ class GameLoop implements Disposable {
 
   DateTime _lastFrameTime;
 
-  bool _interrupted;
+  bool _isRunning;
 
   GameLoop(this._renderer, this._physicEngine) {
     _lastFrameTime = new DateTime.now();
-    _interrupted = false;
+    _isRunning = false;
   }
 
+  bool get isRunning => _isRunning;
+
   Future<Null> start([num _]) async {
+    if (isRunning) return;
+    _isRunning = true;
+
     Stream<num> animationFrameStream = _getAnimationFrameStream();
 
     await for (num _ in animationFrameStream) {
-      if (_interrupted) {
-        _interrupted = false;
+      if (!isRunning) {
         break;
       }
 
@@ -42,7 +46,7 @@ class GameLoop implements Disposable {
   }
 
   void stop() {
-    _interrupted = true;
+    _isRunning = false;
   }
 
   void _step(Duration timeBudget) {

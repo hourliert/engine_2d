@@ -41,9 +41,12 @@ class CanvasDrawer extends Drawer {
 
   @override
   void drawCircle(Circle circle) {
-    _ctx.beginPath();
-    _ctx.arc(circle.position.x, circle.position.y, circle.radius, 0, 2 * PI);
-    _ctx.fillStyle = circle.color;
-    _ctx.fill();
+    _ctx
+      ..save()
+      ..beginPath()
+      ..arc(circle.position.x, circle.position.y, circle.radius, 0, 2 * PI)
+      ..fillStyle = circle.color
+      ..fill()
+      ..restore();
   }
 }
