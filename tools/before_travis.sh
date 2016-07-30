@@ -3,4 +3,4 @@
 # Fast fail the script on failures.
 set -e
 
-dartanalyzer --fatal-lints --fatal-warnings .
+dartanalyzer --fatal-warnings {lib,test}/**/*.dart
