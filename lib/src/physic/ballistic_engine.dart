@@ -1,3 +1,7 @@
+// Copyright Thomas Hourlier. All rights reserved.
+// Use of this source code is governed by a MIT-style license
+// that can be found in the LICENSE file.
+
 library engine_2d.src.physic.ballistic_engine;
 
 import 'dart:math';
@@ -18,7 +22,7 @@ class BallisticEngine extends PhysicEngine {
   /// Computes the next bullet positions using a finit [timeBudget]
   @override
   void nextPositions(Duration timeBudget) {
-    _entityStore.entities.forEach((Entity b) {
+    _entityStore.data.forEach((Entity b) {
       _nextBulletPosition(b, timeBudget);
     });
   }

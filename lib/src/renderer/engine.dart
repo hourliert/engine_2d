@@ -1,3 +1,7 @@
+// Copyright Thomas Hourlier. All rights reserved.
+// Use of this source code is governed by a MIT-style license
+// that can be found in the LICENSE file.
+
 library engine_2d.src.renderer.engine;
 
 import 'package:engine_2d/drawers.dart' show Drawer;
@@ -12,7 +16,7 @@ class Renderer {
 
   void render() {
     _drawer.clearStage();
-    _entityStore.entities.forEach(_renderEntity);
+    _entityStore.data.forEach(_renderEntity);
   }
 
   void _renderEntity(Entity entity) {

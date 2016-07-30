@@ -1,3 +1,7 @@
+// Copyright Thomas Hourlier. All rights reserved.
+// Use of this source code is governed by a MIT-style license
+// that can be found in the LICENSE file.
+
 @TestOn('vm || browser')
 library engine_2d.test.physic.ballistic_engine;
 
@@ -28,7 +32,7 @@ void main() {
           radius: 4,
           color: 'black');
 
-      when(store.entities).thenReturn(<Entity>[aloneCircle]);
+      when(store.data).thenReturn(<Entity>[aloneCircle]);
     });
 
     test('.nextPositions() computes the next position of all entities', () {

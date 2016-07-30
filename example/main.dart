@@ -1,5 +1,6 @@
-// Copyright (c) 2016, Thomas Hourlier. All rights reserved. Use of this source code
-// is governed by a BSD-style license that can be found in the LICENSE file.
+// Copyright Thomas Hourlier. All rights reserved.
+// Use of this source code is governed by a MIT-style license
+// that can be found in the LICENSE file.
 
 import 'dart:html';
 import 'dart:math';
@@ -17,7 +18,7 @@ void main() {
 
   engine.physic.onEntityHitBorder.listen((Entity e) {
     engine.store.remove(e);
-    nbGo.setInnerHtml('${engine.store.entities.length}');
+    nbGo.setInnerHtml('${engine.store.data.length}');
   });
 
   engine.ui.onClick.listen((MouseEvent e) {
@@ -32,7 +33,7 @@ void main() {
       engine.store.add(circle);
     }
 
-    nbGo.setInnerHtml('${engine.store.entities.length}');
+    nbGo.setInnerHtml('${engine.store.data.length}');
   });
 
   engine.initialize();

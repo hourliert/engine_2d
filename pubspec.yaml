@@ -1,8 +1,8 @@
 name: engine_2d
 description: A 2d engine supporting multiple renderers.
 version: 0.0.1
-#author: Thomas Hourlier <email@example.com>
-#homepage: https://www.example.com
+author: Thomas Hourlier <thomas.hourlier@cnode.fr>
+homepage: https://github.com/hourliert/engine_2d
 
 environment:
   sdk: '>=1.0.0 <2.0.0'

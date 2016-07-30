@@ -1,5 +1,8 @@
-library engine_2d.src.stores.store;
+// Copyright Thomas Hourlier. All rights reserved.
+// Use of this source code is governed by a MIT-style license
+// that can be found in the LICENSE file.
 
+library engine_2d.src.stores.store;
 
 class Store<T> {
   List<T> _store;
@@ -9,7 +12,7 @@ class Store<T> {
   }
 
   /// Gets the bullet list
-  List<T> get entities => _store;
+  List<T> get data => _store;
 
   /// Adds a bullet to the store
   void add(T b) {
@@ -17,9 +20,7 @@ class Store<T> {
   }
 
   /// Removes the specified bullet from the store
-  void remove(T b) {
-    _store.remove(b);
+  bool remove(T b) {
+    return _store.remove(b);
   }
-
-
 }
