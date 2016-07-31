@@ -12,25 +12,11 @@ import 'package:engine_2d/common.dart';
 class UiManager implements Disposable {
   Element _mountPoint;
 
-  StreamController<MouseEvent> _onClickController;
+  UiManager(this._mountPoint);
 
-  StreamSubscription<MouseEvent> _onClickSubscription;
-
-  UiManager(this._mountPoint) {
-    _onClickController = new StreamController<MouseEvent>.broadcast();
-
-    _onClickSubscription = _mountPoint.onClick.listen(_onClick);
-  }
-
-  Stream<MouseEvent> get onClick => _onClickController.stream;
-
-  void _onClick(MouseEvent e) {
-    _onClickController.add(e);
-  }
+  Stream<MouseEvent> get onClick => _mountPoint.onClick;
+  Stream<MouseEvent> get onMouseMove => _mountPoint.onMouseMove;
 
   @override
-  void dispose() {
-    _onClickSubscription.cancel();
-    _onClickController.close();
-  }
+  void dispose() {}
 }

@@ -9,7 +9,7 @@ import 'dart:math' show Rectangle;
 import 'dart:svg' show SvgElement;
 
 import 'package:engine_2d/drawers.dart' show Drawer;
-import 'package:engine_2d/game_objects.dart' show Circle;
+import 'package:engine_2d/game_objects.dart';
 
 class SvgDrawer extends Drawer {
   SvgElement _svg;
@@ -35,11 +35,14 @@ class SvgDrawer extends Drawer {
   }
 
   @override
-  void clearStage() {
+  void beforeRender() {
     while (_svg.hasChildNodes()) {
       _svg.firstChild.remove();
     }
   }
+
+  @override
+  void afterRender() {}
 
   @override
   void drawCircle(Circle circle) {
@@ -50,5 +53,18 @@ class SvgDrawer extends Drawer {
       ..attributes['fill'] = circle.color;
 
     _svg.append(svgCircle);
+  }
+
+  @override
+  void drawEntities(List<Entity> entities) {
+    for (Circle circle in entities) {
+      SvgElement svgCircle = new SvgElement.tag('circle')
+        ..attributes['cx'] = (circle.position.x).toString()
+        ..attributes['cy'] = (circle.position.y).toString()
+        ..attributes['r'] = circle.radius.toString()
+        ..attributes['fill'] = circle.color;
+
+      _svg.append(svgCircle);
+    }
   }
 }

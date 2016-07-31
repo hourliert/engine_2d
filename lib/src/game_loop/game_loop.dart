@@ -20,7 +20,6 @@ class GameLoop implements Disposable {
   bool _isRunning;
 
   GameLoop(this._renderer, this._physicEngine) {
-    _lastFrameTime = new DateTime.now();
     _isRunning = false;
   }
 
@@ -29,6 +28,7 @@ class GameLoop implements Disposable {
   Future<Null> start([num _]) async {
     if (isRunning) return;
     _isRunning = true;
+    _lastFrameTime = new DateTime.now();
 
     Stream<num> animationFrameStream = _getAnimationFrameStream();
 

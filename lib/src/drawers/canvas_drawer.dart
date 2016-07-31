@@ -9,6 +9,7 @@ import 'dart:math' show Rectangle, PI;
 
 import 'package:engine_2d/drawers.dart' show Drawer;
 import 'package:engine_2d/game_objects.dart' show Circle;
+import 'package:engine_2d/src/game_objects/entity.dart';
 
 class CanvasDrawer extends Drawer {
   CanvasElement _canvas;
@@ -35,9 +36,12 @@ class CanvasDrawer extends Drawer {
   }
 
   @override
-  void clearStage() {
+  void beforeRender() {
     _ctx.clearRect(0, 0, _canvas.width, _canvas.height);
   }
+
+  @override
+  void afterRender() {}
 
   @override
   void drawCircle(Circle circle) {
@@ -48,5 +52,18 @@ class CanvasDrawer extends Drawer {
       ..fillStyle = circle.color
       ..fill()
       ..restore();
+  }
+
+  @override
+  void drawEntities(List<Entity> entities) {
+    for (Circle circle in entities) {
+      _ctx
+        ..save()
+        ..beginPath()
+        ..arc(circle.position.x, circle.position.y, circle.radius, 0, 2 * PI)
+        ..fillStyle = circle.color
+        ..fill()
+        ..restore();
+    }
   }
 }

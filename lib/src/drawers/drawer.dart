@@ -8,14 +8,16 @@ import 'dart:html' show Element;
 import 'dart:math' show Rectangle;
 
 import 'package:engine_2d/common.dart';
-import 'package:engine_2d/game_objects.dart' show Circle;
+import 'package:engine_2d/game_objects.dart';
 
 abstract class Drawer implements Disposable {
   void createDom(Element parentElement);
   void destroyDom();
   void updateSize(Rectangle<int> boundaries);
-  void clearStage();
+  void beforeRender();
+  void drawEntities(List<Entity> entities);
   void drawCircle(Circle circle);
+  void afterRender();
 
   @override
   void dispose() {

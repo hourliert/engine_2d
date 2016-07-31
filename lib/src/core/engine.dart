@@ -32,10 +32,13 @@ class Engine2d implements Initializable, Disposable {
       case DrawerType.svg:
         _drawer = new SvgDrawer();
         break;
+      case DrawerType.optimizedCanvas:
+        _drawer = new OptimizedCanvasDrawer();
+        break;
     }
 
     _store = new EntityStore();
-    _physicEngine = new BallisticEngine(_store);
+    _physicEngine = new BouncingBoxEngine(_store);
     _renderer = new Renderer(_drawer, _store);
     _gameLoop = new GameLoop(_renderer, _physicEngine);
     _uiManager = new UiManager(_config.mountPoint);
@@ -45,6 +48,7 @@ class Engine2d implements Initializable, Disposable {
   GameLoop get loop => _gameLoop;
   PhysicEngine get physic => _physicEngine;
   UiManager get ui => _uiManager;
+  Renderer get renderer => _renderer;
 
   @override
   void initialize() {

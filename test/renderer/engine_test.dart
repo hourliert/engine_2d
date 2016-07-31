@@ -41,7 +41,7 @@ void main() {
     test('.render() clears the stage and renders each entity', () {
       renderer.render();
 
-      verify(drawer.clearStage());
+      verify(drawer.beforeRender());
       verify(drawer.drawCircle(aloneCircle));
     });
   });

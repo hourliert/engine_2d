@@ -11,3 +11,6 @@ html, body, #mount {
     top: 10px;
     left: 10px;
 }
+#nb_go {
+    font-size: xx-large;
+}

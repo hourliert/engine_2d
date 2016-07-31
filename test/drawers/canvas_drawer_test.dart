@@ -88,7 +88,7 @@ void main() {
       test('.clearStage() clears the stage', () {
         CanvasElement canvas = parentContainer.firstChild;
 
-        drawer.clearStage();
+        drawer.beforeRender();
 
         ImageData imageData = getImageData(canvas);
         List<int> data = imageData.data;

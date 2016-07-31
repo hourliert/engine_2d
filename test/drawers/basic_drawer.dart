@@ -22,8 +22,13 @@ class BasicDrawer extends Drawer {
   Drawer get mock => _mock;
 
   @override
-  void clearStage() {
-    _mock.clearStage();
+  void beforeRender() {
+    _mock.beforeRender();
+  }
+
+  @override
+  void afterRender() {
+    _mock.afterRender();
   }
 
   @override

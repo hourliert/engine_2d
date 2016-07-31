@@ -97,7 +97,7 @@ void main() {
 
         expect(svg.childNodes.length, equals(10));
 
-        drawer.clearStage();
+        drawer.beforeRender();
 
         expect(svg.childNodes.length, equals(0));
       });

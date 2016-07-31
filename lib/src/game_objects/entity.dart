@@ -15,6 +15,7 @@ abstract class Entity {
   num angle;
   String color;
 
+
   Entity(
       {this.position,
       this.type,
